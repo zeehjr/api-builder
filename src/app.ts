@@ -1,5 +1,5 @@
 import express from 'express'
-import dynamicRouter from './services/dynamicRouter'
+import dynamicRouter from './api/middlewares/dynamicRouter'
 
 const app = express()
 
