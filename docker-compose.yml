@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  api-builder:
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      PORT: 8080
+      DB_HOST: mongo
+      DB_USER: "${DB_USER}"
+      DB_PASS: "${DB_PASS}"
+    ports:
+      - "${API_PORT}:8080"
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${DB_USER}"
+      MONGO_INITDB_ROOT_PASSWORD: "${DB_PASS}"
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./db_data:/data/db
