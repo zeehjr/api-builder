@@ -1,2 +1,4 @@
 node_modules
-dist
+build
+tmp
+db_data
